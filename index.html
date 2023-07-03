@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Startup Name</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+   /* Global Styles */
+    *{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+    }
+    html{
+       scroll-behavior: smooth;
+    }
+    :root {
+      --primary-background-color: #f2f2f2;
+     --primary-text-color: #333;
+     --secondary-background-color: #333;
+     --secondary-text-color: red;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-background-color);
+      color: var(--primary-text-color);
+    }
+
+    .container {
+      min-width: 100vw;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    a{
+      text-decoration: none;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      color: white;
+      margin-top: px;
+    }
+    a h1 span{
+      color: red;
+      margin-top: 10px;
+    }
+    /* Header Section*/
+    #header{
+      width: 100vw;
+      height: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+    }
+    #header .header{
+       min-height: 5vh;
+      background-color: rgba(31, 30, 30, 0.24);
+      transition: .3s ease background-color;
+    }
+    #header .nav-bar{
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      max-width: 1300px;
+      padding: 0 10px;
+
+    }
+    #header .nav-list ul{
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(31, 30, 30);
+      left: 100%;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      top: 0;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      overflow-x: hidden;
+      transition: .5s ease left;
+    }
+    #header .nav-list ul.active{
+      left: 0;
+    }
+    #header .nav-list a{
+      color: white;
+      text-transform: uppercase;
+      padding: 20px;
+      display: block;
+      text-decoration: none;
+      letter-spacing: .2rem ;
+      font-size: 2.5rem;
+      font-weight: 500;
+  }
+    #header .nav-list a::after{
+      content: attr(data-after);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      color: rgba(240, 248, 255, 0.021);
+      letter-spacing: 50px;
+      z-index: -1;
+      font-size: 13rem;
+      transition: .3s ease letter-spacing;
+    }
+    #header .nav-list a:hover{
+      color: crimson;
+    }
+    #header .nav-list ul li:hover a::after{
+      transform: translate(-50%, -50%) scale(1);
+      letter-spacing: initial;
+    }
+    #header .hamburger{
+     height: 60px;
+     width: 60px;
+    display: block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 20px;
+  }
+  #header .hamburger::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: humburger_puls 3s ease infinite;
+  }
+  #header .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+  }
+  #header .hamburger .bar::after,
+  #header .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+  }
+  #header .hamburger .bar::after{
+    top: 8px;
+  }
+  #header .hamburger .bar::before{
+    bottom: 8px;
+  }
+  #header .hamburger.active .bar::before{
+    bottom: 0;
+  }
+  #header .hamburger.hamburger.active .bar::after{
+    top: 0;
+  }
+  /* End Header Section*/
+
+  /* Hero Section Styles */
+  #hero {
+    background-image: url(../mypersoanl-website/soft-drinks.png);
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+     text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px; 
+  } 
+
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color:aqua;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* About Section Styles */
+#about {
+  background-color: #f2f2f2;
+  padding: 50px 0;
+  text-align: center;
+  background-color: var(--primary-background-color);
+}
+
+#about h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#about p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Services Section Styles */
+#services {
+  background-color: #fff;
+  padding: 50px 0;
+  text-align: center;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+}
+
+#services h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#services ul li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+/* Contact Section Styles */
+#contact {
+  background-color: #f2f2f2;
+  padding: 50px 0;
+  text-align: center;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+}
+
+#contact h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#contact button {
+  background-color: crimson;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Media Query For Desktop*/
+@media only screen and (min-width:1200px) {
+/* Header*/
+#header .hamburger{
+    display: none;
+  }
+#header .nav-list ul{
+  position: initial;
+  display: block;
+  height: auto;
+  width: fit-content;
+  background-color: transparent;
+
+}
+#header .nav-list ul li a{
+  font-size: 1.5rem;
+}
+#header .nav-list ul li{
+  display: inline-block;
+}
+/* End Header*/
+            
+}
+/* End Media Query For Desktop*/
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color)
+}
+
+  </style>
+</head>  
+<body>
+  <section id="header">
+    <div class="light-mode">
+     <!-- Your content goes here -->
+
+      <button id="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+
+    <div class="header container">
+      <div class="nav-bar">
+          <div class="brand">
+              <a href="#hero"><h1><span>m</span>ugish<span>a</span></h1></a>
+          </div>
+          <div class="nav-list">
+              <div class="hamburger"><div class="bar"></div></div>
+                <ul>
+                  <li><a href="#hero" data-after="Home">Home</a></li>
+                  <li><a href="#services" data-after="Services">Servives</a></li>
+                  <li><a href="#projects" data-after="Projects">Projects</a></li>
+                  <li><a href="#about" data-after="About">About</a></li>
+                  <li><a href="#contact" data-after="Contact">Contact</a></li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Your Startup Name</h1>
+      <p>Welcome to our innovative startup.</p>
+      <a href="#contact" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id consectetur tortor. Nulla facilisi. Nulla
+        facilisi. Mauris non pharetra lorem. Sed sit amet augue eget lectus pharetra tincidunt id in nulla.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Service 1</li>
+        <li>Service 2</li>
+        <li>Service 3</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Your Startup Name. All rights reserved.</p>
+  </footer>
+  <script src="app.js"></script>
+ </body>
+</html>
